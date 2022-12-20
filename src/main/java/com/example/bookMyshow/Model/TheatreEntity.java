@@ -3,10 +3,7 @@ package com.example.bookMyshow.Model;
 import com.example.bookMyshow.enums.SeatType;
 import com.example.bookMyshow.enums.TheatreType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,6 +15,7 @@ import java.util.List;
 @Getter   //lombook is the dependency for getter and setter
 @Setter
 @Table(name = "theatres")
+@Builder
 public class TheatreEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,13 +29,13 @@ public class TheatreEntity {
 
     @Column(name = "address",nullable = false)
     private String address ;
-
+    TheatreType type ;
 
     @OneToMany(mappedBy = "theater",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<ShowEntity> shows ;
 
-    TheatreType type ;
+
 
     @OneToMany(mappedBy = "theater",cascade = CascadeType.ALL)
     @JsonIgnore
