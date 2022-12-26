@@ -12,9 +12,11 @@ public class MovieServiceImpl implements MovieService {
     MovieRepository movieRepository ;
 
     @Override
-    public void addMovie(MovieDto movieDto) {
+    public MovieDto addMovie(MovieDto movieDto) {
         MovieEntity movieEntity = MovieConverter.dtoToEntity(movieDto) ;
         movieRepository.save(movieEntity) ;
+
+        return movieDto;
     }
 
     @Override

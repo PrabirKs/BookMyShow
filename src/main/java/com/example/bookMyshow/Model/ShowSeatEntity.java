@@ -2,10 +2,7 @@ package com.example.bookMyshow.Model;
 
 import com.example.bookMyshow.enums.SeatType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,6 +12,7 @@ import java.util.Date;
 @Table(name = "show_seats")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class ShowSeatEntity {
 
     @Id

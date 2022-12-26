@@ -65,7 +65,9 @@ public class TheatreServiceImpl implements TheatreService {
 
     @Override
     public TheatreDto getTheatre(int id) {
+        TheatreEntity theatreEntity = theatreRepository.findById(id).get() ;
+        TheatreDto theatreDto = TheatreConverter.EntityToDto(theatreEntity) ;
 
-        return null;
+        return theatreDto ;
     }
 }
